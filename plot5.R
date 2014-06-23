@@ -2,7 +2,7 @@ setwd("/Users/Yuji/Downloads/exdata-data-NEI_data")
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-sub.scc <- subset(SCC, grepl('Motor', Short.Name), select = "SCC")
+sub.scc <- subset(SCC, grepl('Highway Veh', Short.Name), select = "SCC")
 Motor.baltimore <- subset(NEI, NEI$SCC %in% sub.scc[[1]] & NEI$fips == '24510')
 
 total <- tapply(Motor.baltimore$Emissions, Motor.baltimore$year, sum)
