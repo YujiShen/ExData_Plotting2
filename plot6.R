@@ -4,7 +4,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 
 library(lattice)
 
-sub.scc <- subset(SCC, grepl("Motor", Short.Name), select = "SCC")
+sub.scc <- subset(SCC, grepl("Highway Veh", Short.Name), select = "SCC")
 Motor <- subset(NEI, NEI$SCC %in% sub.scc[[1]] & (NEI$fips == '06037' | NEI$fips == "24510"))
 
 total <- ddply(Motor, .(year = Motor$year, fips= Motor$fips), summarize, Emissions = sum(Emissions))
